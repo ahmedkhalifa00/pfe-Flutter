@@ -14,13 +14,31 @@ dependencies:
    
 
   english_words: ^4.0.0
-  provider: ^6.0.0
   flutter_mapbox_navigation: ^0.2.2
-  geolocator: ^12.0.0
+  geolocator: ^11.1.0
   rflutter_alert: ^2.0.7
-  google_fonts: ^6.2.1
+  google_fonts: 6.1.0
   flex_color_scheme: ^7.3.1
   zoom_tap_animation: ^1.1.0
+  flutter_svg: ^2.0.10+1
+  cupertino_icons: ^1.0.8
+  font_awesome_flutter: ^10.7.0
+  smooth_page_indicator: ^1.2.0
+  iconsax: ^0.0.8
+  flutter_local_notifications: ^9.2.0
+  provider: ^6.1.2
+  protobuf: ^2.0.0
+  grpc: ^3.0.0
+  mapbox_gl: ^0.13.0 
+  image_picker: ^0.8.4+3
+  contacts_service: ^0.6.3
+  url_launcher: 
+  permission_handler: 
+  http: 
+  flutter_secure_storage: 
+  share_plus: 
+  # firebase_messaging: 
+
 
 
 
@@ -36,7 +54,23 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/  
+    - assets/images/
+    #- assets/sounds/
+
+  
+  fonts:
+    - family: FiraSans
+      fonts:
+        - asset: assets/fonts/FiraSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/FiraSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/FiraSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/FiraSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/FiraSans-Bold.ttf
+          weight: 700
   
 
  

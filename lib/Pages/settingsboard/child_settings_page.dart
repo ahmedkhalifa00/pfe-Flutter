@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+import 'package:flutterproject/Pages/settingsboard/child_profile_page.dart';
+import 'package:flutterproject/Pages/settingsboard/confirm_delete_page.dart';
+import 'package:flutterproject/Pages/settingsboard/listofparents.dart';
+
+class ChildSettingsPage extends StatefulWidget {
+  @override
+  _ChildSettingsPageState createState() => _ChildSettingsPageState();
+}
+
+class _ChildSettingsPageState extends State<ChildSettingsPage> {
+  bool isLowBatteryNotificationEnabled = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Paramètres enfant'),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16.0),
+        children: [
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Nickname and photo of the child'),
+            subtitle: Text('Boy'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChildProfilePage()),
+              ); // Handle navigation or action here
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text('List of parents'),
+            onTap: () {
+/*               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ConnectedUsersPage(kidId: ''),
+                ),
+              ); */ // Handle navigation or action here
+            },
+          ),
+          Divider(),
+          SwitchListTile(
+            title: Text('Low battery notification'),
+            value: isLowBatteryNotificationEnabled,
+            onChanged: (bool value) {
+              setState(() {
+                isLowBatteryNotificationEnabled = value;
+              });
+            },
+          ),
+          Divider(),
+          SizedBox(height: 20),
+          ListTile(
+            leading: Icon(Icons.delete, color: Colors.red),
+            title: Text('Remove Child'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ConfirmDeletePage(
+                    onDeleteConfirmed: () {
+                      // Handle the delete action, e.g., call a backend service
+                      print('Child deleted');
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

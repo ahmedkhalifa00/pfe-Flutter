@@ -1,23 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/map.dart';
+import 'package:flutterproject/Pages/Splash/splash_page.dart';
+import 'package:flutterproject/Resources/routes_manager.dart';
+//import 'package:flutterproject/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
+//import 'firebase_messaging_service.dart'; // Import the service
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       debugShowCheckedModeBanner: false,
-      home: MapView(),
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: Routes.splash,
+      title: 'kidotrack',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SplashPage(),
     );
   }
 }
+
+/* class _MyAppState extends State<MyApp> {
+   late FirebaseMessagingService _firebaseMessagingService;
+
+  @override
+  void initState() {
+    super.initState();
+    _firebaseMessagingService =
+        FirebaseMessagingService(); // Initialize the service
+  } 
+
+
+} */
+
