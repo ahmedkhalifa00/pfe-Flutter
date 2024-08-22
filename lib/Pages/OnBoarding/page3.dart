@@ -9,18 +9,26 @@ class Page3 extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(AppAssets.onboarding3),
-        SizedBox(height: 20),
-        Text(
-          AppStrings.onboarding3Title,
-          style: getBoldStyle(color: Colors.black, fontSize: 24),
-          textAlign: TextAlign.center,
-        ),
-        SizedBox(height: 10),
-        Text(
-          AppStrings.onboarding3SubTitle,
-          style: getRegularStyle(color: Colors.black, fontSize: 16),
-          textAlign: TextAlign.center,
+        Image.asset(AppAssets.onboarding33),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(AppAssets.onboarding3),
+              SizedBox(height: 100),
+              Text(
+                AppStrings.onboarding3Title,
+                style: getBoldStyle(color: Colors.black, fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 10),
+              Text(
+                AppStrings.onboarding3SubTitle,
+                style: getRegularStyle(color: Colors.black, fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ],
     );

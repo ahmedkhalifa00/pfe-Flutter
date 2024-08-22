@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(AppAssets.pingo, height: 200),
+              Image.asset(AppAssets.b1),
               SizedBox(height: 20),
               Text(
                 "Hello, I'm Kido!",

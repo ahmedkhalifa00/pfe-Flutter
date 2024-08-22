@@ -52,7 +52,7 @@ class DownloadKidAppPage extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Image.asset(AppAssets.pingo, height: 60),
+                        Image.asset(AppAssets.logo, height: 60),
                         SizedBox(width: 10),
                         Expanded(
                           child: Column(

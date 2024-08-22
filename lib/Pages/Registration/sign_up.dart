@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/Resources/assets_manager.dart';
+import 'package:flutterproject/components/curve.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutterproject/components/custom_text_field.dart';
 import 'package:flutterproject/constants.dart';
@@ -13,6 +15,7 @@ class SignupScreen extends StatelessWidget {
     return Material(
       child: Stack(
         children: [
+          Image.asset(AppAssets.bgs),
           Scaffold(
             body: SafeArea(
               child: SingleChildScrollView(

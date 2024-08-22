@@ -43,7 +43,7 @@ class ConfigureKidPhonePage extends StatelessWidget {
                 SizedBox(width: 20),
                 Column(
                   children: [
-                    Image.asset(AppAssets.pingo, height: 80),
+                    Image.asset(AppAssets.kido, height: 80),
                     SizedBox(height: 10),
                     Text(
                       'kido',

@@ -23,11 +23,12 @@ class SendLinkOptions extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
+          SizedBox(height: 100.0),
           Image.asset(
             'assets/images/image.png', // Add your image asset path
             height: 100,
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: 45.0),
           Text(
             'Share Kidotrack',
             style: TextStyle(

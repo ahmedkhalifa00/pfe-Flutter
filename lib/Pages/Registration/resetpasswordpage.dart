@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/Resources/assets_manager.dart';
 import 'package:http/http.dart'
     as http; // Add this import for making HTTP requests
 
@@ -64,6 +65,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Image.asset(AppAssets.bgs),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(

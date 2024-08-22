@@ -11,6 +11,7 @@ import 'package:flutterproject/Pages/Registration/sign_up.dart';
 import 'package:flutterproject/Pages/MainPage.dart';
 import 'package:flutterproject/Pages/setup/welcome_page.dart';
 import 'package:flutterproject/Pages/volume_notification_page.dart';
+import 'package:flutterproject/Pages/map/movement_history_page.dart';
 
 import 'package:flutterproject/Resources/strings_manager.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class Routes {
   static const String volumeNotification = "volume_notification";
   static const String usageStats = "usage_stats";
   static const String resetPassword = 'reset-password';
+  static const String movementhistory = '/movement-history';
 }
 
 class RouteGenerator {
@@ -62,6 +64,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => UsageStatsPage());
       case Routes.resetPassword:
         return MaterialPageRoute(builder: (_) => ResetPasswordPage());
+      /*     case Routes.movementhistory:
+        return MaterialPageRoute(builder: (_) => MovementHistoryPage()); */
       case Routes.addhome:
         return MaterialPageRoute(
             builder: (_) => HomeLocationPage(

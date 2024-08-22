@@ -30,8 +30,11 @@ class _VolumeNotificationPageState extends State<VolumeNotificationPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.notifications_active,
-                size: 100, color: Color.fromARGB(255, 0, 33, 223)),
+            Icon(
+              Icons.notifications_active,
+              size: 100,
+              color: isSignaling ? Colors.red : Color.fromARGB(255, 0, 33, 223),
+            ),
             SizedBox(height: 20),
             Text(
               "Send a sound notification to the child's device.",
@@ -41,7 +44,10 @@ class _VolumeNotificationPageState extends State<VolumeNotificationPage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _toggleSignal,
-              child: Text(isSignaling ? 'Stop' : 'Make a bib bib !'),
+              child: Text(isSignaling ? 'Stop' : 'Make a bib bib!'),
+              style: ElevatedButton.styleFrom(
+                primary: isSignaling ? Colors.red : Colors.blue,
+              ),
             ),
           ],
         ),

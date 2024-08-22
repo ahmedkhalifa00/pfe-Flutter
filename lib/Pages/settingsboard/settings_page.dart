@@ -27,16 +27,6 @@ class SettingsPage extends StatelessWidget {
           ),
           SizedBox(height: 20),
           ListTile(
-            leading: Icon(Icons.check_circle, color: Colors.green),
-            title: Text('Tasks'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.devices, color: Colors.blue),
-            title: Text('Devices'),
-            onTap: () {},
-          ),
-          ListTile(
             leading: Icon(Icons.settings, color: Colors.purple),
             title: Text('Child settings'),
             onTap: () {
@@ -47,15 +37,16 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.email, color: Colors.grey),
-            title: Text('Set Email'),
+            leading:
+                Icon(Icons.supervised_user_circle_sharp, color: Colors.grey),
+            title: Text('List of parents'),
             onTap: () {
-              Navigator.push(
+/*               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EmailSettingsPage(),
+                  builder: (context) => ConnectedUsersPage(kidId: ''),
                 ),
-              );
+              ); */ // Handle navigation or action here
             },
           ),
           ListTile(

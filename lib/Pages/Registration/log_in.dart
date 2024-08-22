@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/Resources/assets_manager.dart';
 import 'package:flutterproject/Resources/routes_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutterproject/components/custom_text_field.dart';
@@ -45,7 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final authProvider = Provider.y
+    of<AuthProvider>(context, listen: false);
 
     final isAuthenticated = await authProvider.login(username, password);
 
@@ -73,7 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
         alignment: Alignment.bottomRight,
         fit: StackFit.expand,
         children: [
-          // Background Image
+          Image.asset(AppAssets.bgs),
+
           ClipPath(
             clipper: ImageClipper(),
             child: SvgPicture.asset(

@@ -83,10 +83,11 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
             child: Container(
               height: 4,
               width: 40,
-              color: Colors.grey[300],
+              color: Color.fromARGB(255, 140, 154, 167),
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
+          SizedBox(height: 80.0),
           Text(
             'To check your child\'s location on the map, install kido on their phone and enter the code',
             textAlign: TextAlign.center,
@@ -95,7 +96,7 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: 50.0),
           Image.asset(
             'assets/images/baby.png', // Add your image asset path
             height: 100,

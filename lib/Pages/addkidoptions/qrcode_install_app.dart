@@ -23,6 +23,7 @@ class QrcodeInstallApp extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
+          SizedBox(height: 40.0),
           Image.asset(
             'assets/images/image.png', // Add your image asset path
             height: 100,

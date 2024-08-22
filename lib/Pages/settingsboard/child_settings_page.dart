@@ -32,19 +32,6 @@ class _ChildSettingsPageState extends State<ChildSettingsPage> {
             },
           ),
           Divider(),
-          ListTile(
-            leading: Icon(Icons.people),
-            title: Text('List of parents'),
-            onTap: () {
-/*               Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ConnectedUsersPage(kidId: ''),
-                ),
-              ); */ // Handle navigation or action here
-            },
-          ),
-          Divider(),
           SwitchListTile(
             title: Text('Low battery notification'),
             value: isLowBatteryNotificationEnabled,

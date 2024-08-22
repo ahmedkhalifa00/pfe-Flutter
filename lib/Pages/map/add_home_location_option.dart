@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/Resources/routes_manager.dart';
 
-class AddHomeLocationOption extends StatelessWidget {
+class AddHomeLocationOption extends StatefulWidget {
+  @override
+  _AddHomeLocationOptionState createState() => _AddHomeLocationOptionState();
+}
+
+class _AddHomeLocationOptionState extends State<AddHomeLocationOption> {
+  bool isHomeNotificationEnabled = false;
+  bool isSchoolNotificationEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,6 +24,7 @@ class AddHomeLocationOption extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // Drag handle at the top
           Center(
             child: Container(
               height: 4,
@@ -24,42 +33,62 @@ class AddHomeLocationOption extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
-          Image.asset(
-            'assets/images/image.png', // Add your image asset path
-            height: 100,
+          // List tile for Home location
+          ListTile(
+            leading: Icon(Icons.home,
+                color: isHomeNotificationEnabled ? Colors.blue : Colors.grey),
+            title: Text('home'),
+            subtitle: Text(isHomeNotificationEnabled
+                ? 'Notifications ON'
+                : 'Notifications OFF'),
+            trailing: Switch(
+              value: isHomeNotificationEnabled,
+              onChanged: (bool value) {
+                setState(() {
+                  isHomeNotificationEnabled = value;
+                  if (value) {
+                    Navigator.pushNamed(context, Routes.addhome);
+                  }
+                });
+              },
+            ),
+            tileColor: isHomeNotificationEnabled
+                ? Colors.blue.shade50
+                : Colors.grey.shade200,
+          ),
+          Divider(height: 1),
+          // List tile for School location
+          ListTile(
+            leading: Icon(Icons.school,
+                color: isSchoolNotificationEnabled ? Colors.blue : Colors.grey),
+            title: Text('school'),
+            subtitle: Text(isSchoolNotificationEnabled
+                ? 'Notifications ON'
+                : 'Notifications OFF'),
+            trailing: Switch(
+              value: isSchoolNotificationEnabled,
+              onChanged: (bool value) {
+                setState(() {
+                  isSchoolNotificationEnabled = value;
+                  if (value) {
+                    Navigator.pushNamed(context, Routes.addhome);
+                  }
+                });
+              },
+            ),
+            tileColor: isSchoolNotificationEnabled
+                ? Colors.blue.shade50
+                : Colors.grey.shade200,
           ),
           SizedBox(height: 20.0),
-          Text(
-            'Add your home',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 10.0),
-          Text(
-            'for notification when the kid is in/out of home',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: 50.0),
-          SizedBox(height: 50.0),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.addhome);
-              // Handle send link action
-            },
-            child: Text('Add your home location'),
-          ),
+          // Button to add another location (e.g., Grandparent's house or Park)
+
+          // Close button
           TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('Fermer'),
+            child: Text('close'),
           ),
         ],
       ),

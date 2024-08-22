@@ -6,8 +6,6 @@ import 'package:flutterproject/Pages/map/movement_history_page.dart';
 import 'package:flutterproject/Pages/phonecall_page.dart';
 import 'package:flutterproject/Pages/settingsboard/settings_page.dart';
 import 'package:flutterproject/Resources/routes_manager.dart';
-//import 'package:mapbox_gl/mapbox_gl.dart';
-// import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -15,6 +13,50 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  // Example list of notifications
+  final List<String> notifications = [
+    "Kid entered the school zone",
+    "Kid left home",
+    "Kid's battery is low",
+    "SOS Alert from kid",
+  ];
+
+/*    List<String> notifications = [];
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startFetchingNotifications();
+  }
+
+  Future<List<String>> fetchNotifications() async {
+    final response = await http.get(Uri.parse('https://your-backend.com/api/notifications'));
+
+    if (response.statusCode == 200) {
+      List<dynamic> data = json.decode(response.body);
+      return data.map((notification) => notification.toString()).toList();
+    } else {
+      throw Exception('Failed to load notifications');
+    }
+  }
+
+  void _startFetchingNotifications() {
+    _timer = Timer.periodic(Duration(seconds: 10), (timer) async {
+      List<String> newNotifications = await fetchNotifications();
+      setState(() {
+        notifications = newNotifications;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+ */
+
   void _showAddKidOptions() {
     showModalBottomSheet(
       context: context,
@@ -27,7 +69,7 @@ class _MainPageState extends State<MainPage> {
       ),
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height *
-            0.8, // Adjust the height as needed
+            0.7, // Adjust the height as needed
         child: AddKidOptions(),
       ),
     );
@@ -58,7 +100,7 @@ class _MainPageState extends State<MainPage> {
       ),
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height *
-            0.65, // Adjust the height as needed
+            0.38, // Adjust the height as needed
         child: SettingsPage(),
       ),
     );
@@ -78,38 +120,21 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  // void _callChild() {
-  //   if (childPhoneNumber != null) {
-  //     _makePhoneCall('tel:$childPhoneNumber');
-  //   } else {
-  //     _addChildPhoneNumber();
-  //   }
-  // }
-
-  // Future<void> _makePhoneCall(String url) async {
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
-/* 
-  void _viewMovementHistory() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MovementHistoryPage(),
-      ),
-    );
+  void _callChild() {
+    if (childPhoneNumber != null) {
+      _makePhoneCall('tel:$childPhoneNumber');
+    } else {
+      _addChildPhoneNumber();
+    }
   }
 
-  // Example child movement history
-  List<LatLng> movementHistory = [
-    LatLng(37.7749, -122.4194),
-    LatLng(37.7750, -122.4184),
-    LatLng(37.7760, -122.4174),
-    // Add more points as needed
-  ]; */
+  Future<void> _makePhoneCall(String url) async {
+    // if (await canLaunch(url)) {
+    //   await launch(url);
+    // } else {
+    //   throw 'Could not launch $url';
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,11 +149,11 @@ class _MainPageState extends State<MainPage> {
           DraggableScrollableSheet(
             initialChildSize: 0.2, // Initial size of the bottom sheet
             minChildSize: 0.1, // Minimum size of the bottom sheet
-            maxChildSize: 0.9, // Maximum size of the bottom sheet
+            maxChildSize: 0.7, // Maximum size of the bottom sheet
             builder: (context, scrollController) {
               return Container(
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 220, 225, 231),
+                  color: Color.fromARGB(255, 202, 226, 253),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40.0),
                     topRight: Radius.circular(40.0),
@@ -144,7 +169,7 @@ class _MainPageState extends State<MainPage> {
                         width: 40,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: Colors.grey[400],
+                          color: Color.fromARGB(255, 255, 255, 255),
                           borderRadius: BorderRadius.circular(2),
                         ),
                       ),
@@ -153,26 +178,34 @@ class _MainPageState extends State<MainPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.mic, size: 30),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context,
-                                  Routes
-                                      .micListening); // Handle mic button press
-                            },
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.notifications_active,
-                                size: 30,
-                                color: Color.fromARGB(255, 87, 87, 87)),
+                            icon: Icon(
+                              Icons.notifications_active,
+                              size: 30,
+                              color: Colors
+                                  .blueAccent, // Changed to a suitable color
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(
                                   context, Routes.volumeNotification);
                             },
                           ),
                           IconButton(
-                              icon: Icon(Icons.location_on, size: 30),
-                              onPressed: _AddhomeLocationOptions),
+                            icon: Icon(
+                              Icons.add,
+                              size: 50,
+                              color:
+                                  Colors.green, // Changed to a suitable color
+                            ),
+                            onPressed: _showAddKidOptions,
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.location_on,
+                              size: 30,
+                              color: Colors.red, // Changed to a suitable color
+                            ),
+                            onPressed: _AddhomeLocationOptions,
+                          ),
                         ],
                       ),
                       SizedBox(height: 5), // Space between rows
@@ -181,48 +214,114 @@ class _MainPageState extends State<MainPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.videogame_asset, size: 30),
+                            icon: Icon(
+                              Icons.history,
+                              size: 30,
+                              color:
+                                  Colors.orange, // Changed to a suitable color
+                            ),
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context,
-                                  Routes
-                                      .usageStats); // Handle games button press
+                              Navigator.pushNamed(context, '/movement-history');
                             },
                           ),
-                          // IconButton(
-                          //   icon: Icon(Icons.phone, size: 30),
-                          //   // onPressed: _callChild,
-                          // ),
                           IconButton(
-                            icon: Icon(Icons.add, size: 50),
-                            onPressed: _showAddKidOptions,
+                            icon: Icon(
+                              Icons.phone,
+                              size: 30,
+                              color: Colors.blue, // Changed to a suitable color
+                            ),
+                            onPressed: _callChild,
                           ),
                           IconButton(
-                            icon: Icon(Icons.chat, size: 30),
+                            icon: Icon(
+                              Icons.chat,
+                              size: 30,
+                              color:
+                                  Colors.purple, // Changed to a suitable color
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(context, Routes.chat);
                             },
                           ),
                           IconButton(
-                            icon: Icon(Icons.settings, size: 30),
+                            icon: Icon(
+                              Icons.settings,
+                              size: 30,
+                              color: Colors.grey, // Changed to a suitable color
+                            ),
                             onPressed: _settingpage,
                           ),
                         ],
                       ),
                       SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {}, // _viewMovementHistory,
-                        child: Text('View Movement History'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                        ),
-                      ), // Additional content here if needed
-                      Container(
-                        height: 550, // Adjust this height as needed
-                        color: Colors.grey[200], // Just for illustration
+                      Divider(
+                        height: 10,
                       ),
+                      SizedBox(height: 20),
+                      // Notifications list
+/*           // Notifications list
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Recent Notifications',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: notifications.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: Icon(Icons.notification_important, color: Colors.blueAccent),
+                      title: Text(notifications[index]),
+                      subtitle: Text('Just now'), // Replace with actual timestamp
+                    );
+                  },
+                ),
+              ],
+            ),
+          ), */
+
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Recent Notifications',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: notifications.length,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  leading: Icon(Icons.notification_important,
+                                      color: Colors.blueAccent),
+                                  title: Text(notifications[index]),
+                                  subtitle: Text(
+                                      '2 hours ago'), // Placeholder for time
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20),
                     ],
                   ),
                 ),
