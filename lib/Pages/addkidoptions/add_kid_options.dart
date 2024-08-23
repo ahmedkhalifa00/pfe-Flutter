@@ -35,60 +35,65 @@ class AddKidOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Background image positioned more to the top
-        Positioned(
-          top: 10,
-          left: 0,
-          right: 0,
-          child: Image.asset(
-            'assets/images/logo.png', // Replace with your image asset
-            fit: BoxFit.fitHeight,
-            height: MediaQuery.of(context).size.height *
-                0.4, // Adjust height as needed
-          ),
-        ),
-        // Content overlay positioned towards the bottom
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            margin: const EdgeInsets.all(20.0),
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 199, 219, 245).withOpacity(0.9),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ListTile(
-                  leading: Icon(Icons.child_care),
-                  title: Text('Add a kid or more'),
-                  onTap: () {
-                    _showAddKidCodeOptions(context); // Handle option selection
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.link),
-                  title: Text('Send link'),
-                  onTap: () {
-                    _showSendLinkOptions(context); // Handle option selection
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.qr_code),
-                  title: Text('View QR code'),
-                  onTap: () {
-                    _showSendcodeQRforInstall(
-                        context); // Handle option selection
-                  },
-                ),
-              ],
+    return Scaffold(
+      body: Stack(
+        children: [
+          // Logo Image positioned at the top
+          Positioned(
+            top: 20,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Image.asset(
+                'assets/images/a5.png', // Replace with your logo image asset
+                height: 100, // Adjust the size as needed
+              ),
             ),
           ),
-        ),
-      ],
+          // Content overlay positioned towards the bottom
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Color(0xFF9CCFF8).withOpacity(0.9),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.child_care),
+                    title: Text('Add a kid or more'),
+                    onTap: () {
+                      _showAddKidCodeOptions(
+                          context); // Handle option selection
+                    },
+                  ),
+                  Divider(),
+                  ListTile(
+                    leading: Icon(Icons.link),
+                    title: Text('Send link'),
+                    onTap: () {
+                      _showSendLinkOptions(context); // Handle option selection
+                    },
+                  ),
+                  Divider(),
+                  ListTile(
+                    leading: Icon(Icons.qr_code),
+                    title: Text('View QR code'),
+                    onTap: () {
+                      _showSendcodeQRforInstall(
+                          context); // Handle option selection
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

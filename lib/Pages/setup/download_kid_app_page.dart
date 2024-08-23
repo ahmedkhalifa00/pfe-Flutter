@@ -52,7 +52,7 @@ class DownloadKidAppPage extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Image.asset(AppAssets.logo, height: 60),
+                        Image.asset('assets/images/a4.png', height: 60),
                         SizedBox(width: 10),
                         Expanded(
                           child: Column(
@@ -95,7 +95,7 @@ class DownloadKidAppPage extends StatelessWidget {
                 ); */
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: AppColors.primaryy,
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -113,7 +113,7 @@ class DownloadKidAppPage extends StatelessWidget {
               },
               child: Text(
                 'Skip',
-                style: getRegularStyle(color: AppColors.primary, fontSize: 16),
+                style: getRegularStyle(color: AppColors.primaryy, fontSize: 16),
               ),
             ),
             SizedBox(height: 20),

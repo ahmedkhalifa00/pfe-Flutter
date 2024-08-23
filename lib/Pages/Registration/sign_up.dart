@@ -15,7 +15,6 @@ class SignupScreen extends StatelessWidget {
     return Material(
       child: Stack(
         children: [
-          Image.asset(AppAssets.bgs),
           Scaffold(
             body: SafeArea(
               child: SingleChildScrollView(
@@ -35,7 +34,7 @@ class SignupScreen extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               fontSize: 32.0,
                               fontWeight: FontWeight.w600,
-                              color: kDarkBlueColor,
+                              color: kGinColor,
                             ),
                           ),
                           const SizedBox(height: 10.0),
@@ -81,7 +80,7 @@ class SignupScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 15.0,
                                   fontWeight: FontWeight.w600,
-                                  color: kDarkBlueColor,
+                                  color: kDarkBlueColorr,
                                 ),
                               ),
                               Text(
@@ -104,7 +103,7 @@ class SignupScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 15.0,
                                   fontWeight: FontWeight.w600,
-                                  color: kDarkBlueColor,
+                                  color: kDarkBlueColorr,
                                 ),
                               ),
                               Text(
@@ -127,8 +126,8 @@ class SignupScreen extends StatelessWidget {
                             // Your button action here
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                Colors.blue, // Set your desired button color
+                            backgroundColor: Color.fromARGB(255, 85, 133,
+                                179), // Set your desired button color
                             padding: EdgeInsets.symmetric(
                                 vertical: 16), // Adjust the vertical padding
                           ),

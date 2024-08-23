@@ -6,7 +6,7 @@ class QrcodeInstallApp extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFF9CCFF8),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(40.0),
           topRight: Radius.circular(40.0),
@@ -23,9 +23,9 @@ class QrcodeInstallApp extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
-          SizedBox(height: 40.0),
+          SizedBox(height: 20.0),
           Image.asset(
-            'assets/images/image.png', // Add your image asset path
+            'assets/images/a1.png', // Add your image asset path
             height: 100,
           ),
           SizedBox(height: 20.0),
@@ -53,12 +53,19 @@ class QrcodeInstallApp extends StatelessWidget {
           ),
           SizedBox(height: 20.0),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue, // Background color
+              foregroundColor: Colors.white, // Text color
+            ),
             onPressed: () {
               // Handle send link action
             },
             child: Text('Share link'),
           ),
           TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.red,
+            ),
             onPressed: () {
               Navigator.pop(context);
             },

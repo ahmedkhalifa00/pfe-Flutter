@@ -39,7 +39,7 @@ class ConfigureKidPhonePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(width: 20),
-                Icon(Icons.add, size: 40, color: AppColors.primary),
+                Icon(Icons.add, size: 40, color: AppColors.primaryy),
                 SizedBox(width: 20),
                 Column(
                   children: [
@@ -76,7 +76,7 @@ class ConfigureKidPhonePage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.check_circle, color: AppColors.primary),
+                      Icon(Icons.check_circle, color: AppColors.primaryy),
                       SizedBox(width: 10),
                       Text(
                         "Congratulations! The parent's phone is set up!",
@@ -87,7 +87,7 @@ class ConfigureKidPhonePage extends StatelessWidget {
                   SizedBox(height: 20),
                   Row(
                     children: [
-                      Icon(Icons.circle_outlined, color: AppColors.primary),
+                      Icon(Icons.circle_outlined, color: AppColors.primaryy),
                       SizedBox(width: 10),
                       Text(
                         "Now let's set up your child's",
@@ -106,7 +106,7 @@ class ConfigureKidPhonePage extends StatelessWidget {
                     Routes.downloadKidApp); // Navigate to the next setup page
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: AppColors.primaryy,
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

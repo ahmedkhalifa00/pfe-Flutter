@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // light
   static Color primary = Color.fromARGB(255, 39, 140, 255);
+  static Color primaryy = Color(0xFF9CCFF8);
   static Color lightPrimary = const Color(0xffDFF7F8); // color with 80% opacity
   static Color darkGrey = const Color(0xff525252);
   static Color grey = const Color(0xff737477);

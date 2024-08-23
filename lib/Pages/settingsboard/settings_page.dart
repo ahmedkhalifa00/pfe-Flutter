@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/Pages/settingsboard/child_settings_page.dart';
-import 'package:flutterproject/Pages/settingsboard/email_settings_page.dart';
 
 class SettingsPage extends StatelessWidget {
   @override

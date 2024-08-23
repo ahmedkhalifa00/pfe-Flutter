@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/Resources/assets_manager.dart';
-import 'package:http/http.dart'
-    as http; // Add this import for making HTTP requests
+import 'package:http/http.dart' as http;
 
 class ResetPasswordPage extends StatefulWidget {
   @override
@@ -17,7 +16,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     super.dispose();
   }
 
-  // This is the method where you handle the backend call to reset the password
   void _resetPassword() async {
     final email = _emailController.text.trim();
     if (email.isNotEmpty) {
@@ -27,14 +25,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           body: {'email': email},
         );
         if (response.statusCode == 200) {
-          // Show success message or navigate to the login page
           print('Password reset email sent');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Password reset email sent')),
           );
           Navigator.pop(context);
         } else {
-          // Handle error
           print('Error sending password reset email');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Error sending password reset email')),
@@ -47,7 +43,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         );
       }
     } else {
-      // Show an error message if the email field is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Please enter an email')),
       );
@@ -58,27 +53,45 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reset Password'),
+        title: Text(''),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: SafeArea(
+        child: Stack(
           children: [
-            Image.asset(AppAssets.bgs),
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
+            // Background Image
+            Positioned.fill(
+              child: Image.asset(
+                'assets/images/b2.png', // Replace with your background image path
+                fit: BoxFit.cover,
               ),
-              keyboardType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed:
-                  _resetPassword, // Calls the method when the button is pressed
-              child: Text('Send Reset Link'),
+            // Main Content
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 285),
+                  TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(
+                          255, 125, 190, 243), // Background color
+                      foregroundColor: Colors.white, // Text color
+                    ),
+                    onPressed: _resetPassword,
+                    child: Text('Send Reset Link'),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

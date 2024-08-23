@@ -17,48 +17,58 @@ class _ChildSettingsPageState extends State<ChildSettingsPage> {
       appBar: AppBar(
         title: Text('Paramètres enfant'),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(16.0),
+      body: Stack(
         children: [
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Nickname and photo of the child'),
-            subtitle: Text('Boy'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ChildProfilePage()),
-              ); // Handle navigation or action here
-            },
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/wwm.png', // Replace with your background image asset
+              fit: BoxFit.cover,
+            ),
           ),
-          Divider(),
-          SwitchListTile(
-            title: Text('Low battery notification'),
-            value: isLowBatteryNotificationEnabled,
-            onChanged: (bool value) {
-              setState(() {
-                isLowBatteryNotificationEnabled = value;
-              });
-            },
-          ),
-          Divider(),
-          SizedBox(height: 20),
-          ListTile(
-            leading: Icon(Icons.delete, color: Colors.red),
-            title: Text('Remove Child'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ConfirmDeletePage(
-                    onDeleteConfirmed: () {
-                      // Handle the delete action, e.g., call a backend service
-                      print('Child deleted');
-                    },
-                  ),
-                ),
-              );
-            },
+          ListView(
+            padding: EdgeInsets.all(16.0),
+            children: [
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Nickname and photo of the child'),
+                subtitle: Text('Boy'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChildProfilePage()),
+                  );
+                },
+              ),
+              Divider(),
+              SwitchListTile(
+                title: Text('Low battery notification'),
+                value: isLowBatteryNotificationEnabled,
+                onChanged: (bool value) {
+                  setState(() {
+                    isLowBatteryNotificationEnabled = value;
+                  });
+                },
+              ),
+              Divider(),
+              SizedBox(height: 20),
+              ListTile(
+                leading: Icon(Icons.delete, color: Colors.red),
+                title: Text('Remove Child'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ConfirmDeletePage(
+                        onDeleteConfirmed: () {
+                          // Handle the delete action, e.g., call a backend service
+                          print('Child deleted');
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),

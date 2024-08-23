@@ -1,7 +1,7 @@
 import 'package:flutterproject/Pages/Registration/resetpasswordpage.dart';
-import 'package:flutterproject/Pages/app_usage.dart';
+
 import 'package:flutterproject/Pages/chat_page.dart';
-import 'package:flutterproject/Pages/mic_listening_page.dart';
+
 import 'package:flutterproject/Pages/setup/configure_kid_phone_page.dart';
 import 'package:flutterproject/Pages/setup/download_kid_app_page.dart';
 import 'package:flutterproject/Pages/map/home_location_page.dart';
@@ -11,7 +11,6 @@ import 'package:flutterproject/Pages/Registration/sign_up.dart';
 import 'package:flutterproject/Pages/MainPage.dart';
 import 'package:flutterproject/Pages/setup/welcome_page.dart';
 import 'package:flutterproject/Pages/volume_notification_page.dart';
-import 'package:flutterproject/Pages/map/movement_history_page.dart';
 
 import 'package:flutterproject/Resources/strings_manager.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +27,9 @@ class Routes {
   static const String welcome = "welcome";
   static const String configureKidPhone = "configure_kid_phone";
   static const String downloadKidApp = "download_kid_app";
-  static const String micListening = "mic_listening";
+
   static const String volumeNotification = "volume_notification";
-  static const String usageStats = "usage_stats";
+
   static const String resetPassword = 'reset-password';
   static const String movementhistory = '/movement-history';
 }
@@ -56,12 +55,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ConfigureKidPhonePage());
       case Routes.downloadKidApp:
         return MaterialPageRoute(builder: (_) => DownloadKidAppPage());
-      case Routes.micListening:
-        return MaterialPageRoute(builder: (_) => MicListeningPage());
+
       case Routes.volumeNotification:
         return MaterialPageRoute(builder: (_) => VolumeNotificationPage());
-      case Routes.usageStats:
-        return MaterialPageRoute(builder: (_) => UsageStatsPage());
+
       case Routes.resetPassword:
         return MaterialPageRoute(builder: (_) => ResetPasswordPage());
       /*     case Routes.movementhistory:

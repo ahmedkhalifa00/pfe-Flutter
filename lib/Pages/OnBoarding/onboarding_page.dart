@@ -45,7 +45,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     : Text(
                         AppStrings.skip,
                         style: getRegularStyle(
-                            fontSize: 18, color: AppColors.black),
+                            fontSize: 20, color: AppColors.black),
                       )),
           ),
           SizedBox(
@@ -72,12 +72,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(8),
-                      color: AppColors.lightPrimary,
+                      color: AppColors.primaryy,
                     ),
                     child: Text(
                       AppStrings.done,
-                      style: getRegularStyle(
-                          color: AppColors.primary, fontSize: 15),
+                      style:
+                          getRegularStyle(color: AppColors.black, fontSize: 15),
                     ),
                   ),
                 )
@@ -94,7 +94,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         effect: WormEffect(
                           dotWidth: 13,
                           dotHeight: 13,
-                          activeDotColor: AppColors.primary,
+                          activeDotColor: AppColors.primaryy,
                         ),
                       ),
                       GestureDetector(
@@ -109,13 +109,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(8),
-                            color: AppColors.lightPrimary,
+                            color: AppColors.primaryy,
                           ),
                           alignment: Alignment.center,
                           child: Text(
                             AppStrings.next,
                             style: getRegularStyle(
-                                color: AppColors.primary, fontSize: 15),
+                                color: AppColors.black, fontSize: 15),
                           ),
                         ),
                       ),

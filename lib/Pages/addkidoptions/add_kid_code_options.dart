@@ -70,7 +70,7 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFF9CCFF8),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(40.0),
           topRight: Radius.circular(40.0),
@@ -83,11 +83,11 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
             child: Container(
               height: 4,
               width: 40,
-              color: Color.fromARGB(255, 140, 154, 167),
+              color: Color.fromARGB(255, 255, 255, 255),
               margin: const EdgeInsets.only(bottom: 16.0),
             ),
           ),
-          SizedBox(height: 80.0),
+          SizedBox(height: 30),
           Text(
             'To check your child\'s location on the map, install kido on their phone and enter the code',
             textAlign: TextAlign.center,
@@ -96,9 +96,9 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 50.0),
+          SizedBox(height: 30.0),
           Image.asset(
-            'assets/images/baby.png', // Add your image asset path
+            'assets/images/a1.png', // Add your image asset path
             height: 100,
           ),
           SizedBox(height: 20.0),
@@ -127,6 +127,10 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
                 ),
           SizedBox(height: 20.0),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue, // Background color
+              foregroundColor: Colors.white, // Text color
+            ),
             onPressed: isLoading
                 ? null
                 : () {
@@ -138,10 +142,17 @@ class _AddKidCodeOptionsState extends State<AddKidCodeOptions> {
             child: Text('Send link and code'),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue, // Background color
+              foregroundColor: Colors.white, // Text color
+            ),
             onPressed: () {}, //_generateCode,
             child: Text('Generate New Code'),
           ),
           TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.red,
+            ),
             onPressed: () {
               Navigator.pop(context);
             },

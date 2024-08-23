@@ -1,7 +1,5 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutterproject/Resources/assets_manager.dart';
 import 'package:flutterproject/Resources/routes_manager.dart';
-
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -24,13 +22,10 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(AppAssets.background),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(AppAssets.logo),
-              ],
+          Positioned.fill(
+            child: Image.asset(
+              AppAssets.splash,
+              fit: BoxFit.cover, // Ensures the image covers the entire screen
             ),
           ),
         ],

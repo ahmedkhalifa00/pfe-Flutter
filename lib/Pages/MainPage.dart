@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
       ),
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height *
-            0.7, // Adjust the height as needed
+            0.5, // Adjust the height as needed
         child: AddKidOptions(),
       ),
     );

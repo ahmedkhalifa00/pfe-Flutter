@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Resources/assets_manager.dart';
 import 'package:flutterproject/Resources/routes_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutterproject/components/custom_text_field.dart';
@@ -8,7 +7,6 @@ import 'package:flutterproject/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutterproject/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
-//import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -68,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
  */
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -75,12 +74,20 @@ class _LoginScreenState extends State<LoginScreen> {
         alignment: Alignment.bottomRight,
         fit: StackFit.expand,
         children: [
-          Image.asset(AppAssets.bgs),
+          // Background Image
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/b1.png', // Replace with your background image path
+            ),
+          ),
 
+          // Curved SVG at the top
           ClipPath(
             clipper: ImageClipper(),
             child: SvgPicture.asset(
               'assets/images/top.svg',
+              width: 150,
+              height: 200,
               alignment: Alignment.topCenter,
               fit: BoxFit.fitWidth,
             ),
@@ -109,6 +116,8 @@ class _LoginScreenState extends State<LoginScreen> {
             height: MediaQuery.of(context).size.height * 0.67,
             width: MediaQuery.of(context).size.width,
             child: Scaffold(
+              backgroundColor: Colors
+                  .transparent, // Make Scaffold transparent to show background
               body: SingleChildScrollView(
                 child: Container(
                   constraints: BoxConstraints(
@@ -127,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: GoogleFonts.poppins(
                               fontSize: 32.0,
                               fontWeight: FontWeight.w600,
-                              color: kDarkBlueColor,
+                              color: kDarkBlueColorr,
                             ),
                           ),
                           Text(
@@ -220,6 +229,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             ElevatedButton(
                               onPressed: () async {
+                                Navigator.pushReplacementNamed(
+                                    context, Routes.welcome);
                                 // final authProvider = Provider.of<AuthProvider>(
                                 //     context,
                                 //     listen: false);
@@ -236,13 +247,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    const Color.fromARGB(255, 255, 255, 255),
+                                    Color.fromRGBO(156, 207, 248, 1),
                                 padding: EdgeInsets.symmetric(vertical: 16),
                               ),
                               child: Text(
                                 'Log In',
                                 style: TextStyle(
-                                  color: const Color(0xFF1D5C8F),
+                                  color: kDarkBlueColorr,
                                   fontSize: 18,
                                 ),
                               ),
@@ -253,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: const EdgeInsets.only(top: 10.0),
                               child: ElevatedButton(
                                 onPressed: () async {
-/*                                   final authProvider =
+                                  /*                                   final authProvider =
                                       Provider.of<AuthProvider>(context,
                                           listen: false);
                                   try {
@@ -264,7 +275,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   } */
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white,
+                                  backgroundColor:
+                                      Color.fromRGBO(156, 207, 248, 1),
                                   padding: EdgeInsets.symmetric(vertical: 16),
                                 ),
                                 child: Row(
@@ -272,14 +284,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   children: [
                                     Image.asset(
                                       'assets/images/facebook.png', // Your Facebook icon path
-                                      height: 24.0,
-                                      width: 24.0,
+                                      height: 25.0,
+                                      width: 25.0,
                                     ),
                                     SizedBox(width: 10),
                                     Text(
                                       'Login with Facebook',
                                       style: TextStyle(
-                                        color: const Color(0xFF1D5C8F),
+                                        color: kDarkBlueColorr,
                                         fontSize: 18,
                                       ),
                                     ),
@@ -294,13 +306,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                 children: [
                                   const Text(
                                     'Don\'t have an account ?',
-                                    style: TextStyle(fontSize: 14.0),
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        color: Color(0xFF9CCFF8)),
                                   ),
                                   TextButton(
                                     style: ButtonStyle(
                                       foregroundColor:
                                           MaterialStateProperty.all(
-                                              kDarkBlueColor),
+                                              kDarkBlueColorr),
                                     ),
                                     onPressed: () {
                                       Navigator.pushNamed(

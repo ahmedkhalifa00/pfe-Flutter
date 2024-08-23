@@ -8,14 +8,14 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.primaryy,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(AppAssets.b1),
+              Image.asset('assets/images/a1.png', height: 156),
               SizedBox(height: 20),
               Text(
                 "Hello, I'm Kido!",
@@ -47,7 +47,7 @@ class WelcomePage extends StatelessWidget {
                 child: Text(
                   "let's go !",
                   style:
-                      getRegularStyle(color: AppColors.primary, fontSize: 18),
+                      getRegularStyle(color: AppColors.primaryy, fontSize: 18),
                 ),
               ),
             ],
